@@ -1,64 +1,30 @@
 ﻿using System;
 
-namespace BasicMathGameChallenge_Brackeys
+namespace WhileLoopsChallenge_Brackeys_2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int answer1;
-            int answer2;
+            Random numberGen = new Random();
 
-            //Question 1 
-            int a = 10 + 15 + 20;
+            int roll1 = 0;
+            int roll2 = 0;
+            int attempt = 0;
 
-            //Question 2
-            int b = 2 + 4 * 8;
+            Console.WriteLine("Press Enter to roll the dice");
 
-            //response from player
-            string response;
-
-            Console.WriteLine($"Hi, Welcome to Oakkar's math game!\n IF YOU ARE READY TO PLAY THIS GAME SAY 'YESSIR'! ");
-            response = Console.ReadLine();
-
-            if (response == "YESSIR")
+            while (roll1 + roll2 != 12)
             {
-                Console.WriteLine("THAT'S THE ENERGY I NEED!");
+                Console.ReadKey();
+
+                roll1 = numberGen.Next(1, 7);
+                roll2 = numberGen.Next(1, 7);
+                Console.WriteLine($"You rolled a {roll1} and a {roll2}");
+                attempt++;
             }
 
-            else
-            {
-                Console.WriteLine("You're no fun, as punishment, you have to do math exercises now!");
-            }
-
-            Console.WriteLine($"Perfect! \n Lets start with QUESTION 1\n What is 10 + 15 + 20?");
-            answer1 = Convert.ToInt32(Console.ReadLine() );
-
-            if (a == answer1)
-            {
-                Console.WriteLine("CONGRATS! YOUR ANSWER IS CORRECT!"); 
-            }
-
-            else
-            {
-                Console.WriteLine("Sorry, that's the wrong asnwer.");
-            }
-
-            Console.WriteLine($"Now moving onto QUESTION 2! \n What is 2 + 4 * 8?");
-            answer2 = Convert.ToInt32(Console.ReadLine());
-
-            if (answer2 == b)
-            {
-                Console.WriteLine("CONGRATS! YOU GOT THE RIGHT ANSWER AGAIN!");
-            }
-
-            else
-            {
-                Console.WriteLine("Unfortunately, that's not the right answer :(");
-            }
-
-            Console.WriteLine("THAT'S ALL THE QUESTIONS I HAVE FOR NOW. THANKS FOR COMING TO PLAY! \n BYE AND REMEMBER TO ALWAYS KEEP PRACTICING YOUR MATH SKILLS!");
-
+            Console.WriteLine($"It took you {attempt} attempts to roll a perfect tweleve!!! \n Good Job :)");
         }
     }
 }
